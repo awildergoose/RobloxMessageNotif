@@ -1,2 +1,5 @@
 cookie.jsonc
 cookie.json
+__pycache__
+.pytest_cache
+*.pyc
