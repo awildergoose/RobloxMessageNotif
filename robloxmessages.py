@@ -13,15 +13,15 @@ def notify():
     toast = win10toast.ToastNotifier()
     toast.show_toast("Message", "You got a new message!", duration=3, icon_path="./icon.ico", threaded=True, sound=False)
 
-while(True):
+while True:
 	urlHandler = requests.get(url, headers={"content-type": "application/json"}, cookies=cookies)
 	result = urlHandler.json()
 	
-	if(result != None):
+	if result != None:
 		count = result.get('count')
 
-		if(count != None):
-			if(count >= 1):
+		if count != None:
+			if count >= 1:
 				notify()
 				time.sleep(60)
 			else:
