@@ -1,4 +1,6 @@
 {
+    // Debug (prints everytime it sends a request)
+    "debug": true,
     // Minimum unread messages to notify you
     "minunread": 1
 }

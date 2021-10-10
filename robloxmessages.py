@@ -25,11 +25,19 @@ while True:
 		count = result.get('count')
 
 		if count != None:
+			if config.get("debug") == True:
+				print("Message count: " + count)
+
 			if count >= config.get("minunread"):
 				notify()
 				time.sleep(60)
 			else:
+				if config.get("debug") == True:
+					print("No new messages.")
+				
 				time.sleep(25)
 		else:
-			print("Ratelimited or not logged in.")
+			if config.get("debug") == True:
+				print("Ratelimited or not logged in.")
+
 			time.sleep(60)
