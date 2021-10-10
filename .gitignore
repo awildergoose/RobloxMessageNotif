@@ -1,8 +1,10 @@
-cookie.jsonc
+cookie
 cookie.json
+cookie.jsonc
+precious_info
+precious_info.json
+precious_info.jsonc
 __pycache__
 .pytest_cache
 *.pyc
-precious_info.jsonc
-precious_info.json
-precious_info
+.vscode
