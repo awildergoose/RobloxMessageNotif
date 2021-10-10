@@ -13,7 +13,7 @@
         // custom scripts/events that happen whenever there is a new message
         "scripts": {
             // false means its disabled, if it's true, then its enabled
-            "discord_webhook": true
+            "discord_webhook": false
         }
     }
 }
