@@ -7,6 +7,9 @@ precious_info.jsonc
 __pycache__
 .pytest_cache
 *.pyc
+test_file
+test_file.htm
+test_file.html
 <<<<<<< HEAD
 .vscode
 =======
