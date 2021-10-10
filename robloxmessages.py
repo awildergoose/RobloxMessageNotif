@@ -23,7 +23,7 @@ while True:
 	result = urlHandler.json()
 	
 	if result != None:
-		count = result.get('count')+1
+		count = result.get('count')
 
 		if count != None:
 			if config.get("debug") == True:
