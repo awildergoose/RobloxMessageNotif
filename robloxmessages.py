@@ -26,7 +26,7 @@ while True:
 
 		if count != None:
 			if config.get("debug") == True:
-				print("Message count: " + count)
+				print("Message count: " + str(count))
 
 			if count >= config.get("minunread"):
 				notify()
