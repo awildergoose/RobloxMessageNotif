@@ -26,7 +26,7 @@ while True:
 		count = result.get('count')
 
 		if count != None:
-			if config.get("debug") == True:
+			if config.get("debug"):
 				print("Message count: " + str(count))
 
 			if count >= config.get("minunread"):
@@ -35,20 +35,21 @@ while True:
 				for script in config.get("onMessage")["scripts"]:
 					enabled = config.get("onMessage")["scripts"][script]
 					
-					if config.get("debug") == True:
+					if config.get("debug"):
 						print(script + " is currently " + conv[enabled])
 					
-					if(enabled == True):
-						exec(open("./res/scripts/" + script + ".py").read())
-
+					if enabled:
+						with open(f"./res/scripts/{script}.py") as file:
+							exec(file.read())
+					
 				time.sleep(60)
 			else:
-				if config.get("debug") == True:
+				if config.get("debug"):
 					print("No new messages.")
 				
 				time.sleep(25)
 		else:
-			if config.get("debug") == True:
+			if config.get("debug"):
 				print("Ratelimited or not logged in.")
 
 			time.sleep(60)
