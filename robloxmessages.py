@@ -50,6 +50,6 @@ while True:
 				time.sleep(25)
 		else:
 			if config.get("debug"):
-				print("Ratelimited or not logged in.")
+				print("Ratelimited or invalid .ROBLOSECURITY key.")
 
 			time.sleep(60)

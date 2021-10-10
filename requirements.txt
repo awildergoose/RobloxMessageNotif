@@ -1,0 +1,4 @@
+win10toast
+requests
+time
+jsonc_parser

@@ -3,3 +3,6 @@ cookie.json
 __pycache__
 .pytest_cache
 *.pyc
+precious_info.jsonc
+precious_info.json
+precious_info

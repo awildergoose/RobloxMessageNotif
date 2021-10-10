@@ -1,6 +1,6 @@
 {
     // Debug (prints everytime it sends a request)
-    "debug": false,
+    "debug": true,
     // Minimum unread messages to notify you
     "minunread": 1,
     "onMessage": {
@@ -13,7 +13,7 @@
         // custom scripts/events that happen whenever there is a new message
         "scripts": {
             // false means its disabled, if it's true, then its enabled
-            "examplescript": false
+            "discord_webhook/index": true
         }
     }
 }
