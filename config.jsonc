@@ -1,0 +1,4 @@
+{
+    // Minimum unread messages to notify you
+    "minunread": 1
+}
