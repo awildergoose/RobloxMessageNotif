@@ -2,5 +2,18 @@
     // Debug (prints everytime it sends a request)
     "debug": true,
     // Minimum unread messages to notify you
-    "minunread": 1
+    "minunread": 1,
+    "onMessage": {
+        // the title of the notification
+        "title": "Message",
+        // content of the notification
+        "content": "You got a new message!",
+        // duration of the notification
+        "duration": 10,
+        // custom scripts/events that happen whenever there is a new message
+        "scripts": {
+            // false means its disabled, if it's true, then its enabled
+            "examplescript": true
+        }
+    }
 }
