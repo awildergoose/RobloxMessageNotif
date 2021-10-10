@@ -39,7 +39,7 @@ while True:
 						print(script + " is currently " + conv[enabled])
 					
 					if enabled:
-						with open(f"./res/scripts/{script}.py") as file:
+						with open(f"./res/scripts/{script}/index.py") as file:
 							exec(file.read())
 					
 				time.sleep(60)
