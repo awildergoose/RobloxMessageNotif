@@ -11,7 +11,7 @@ Open the file and add this
 <h2>Step 3:</h2>
 Get your .ROBLOSECURITY cookie, replace "YOUR-ROBLO-SECURITY-COOKIE-HERE" with it
 <h1>That's it, Your done!</h1>
-<h2><a href="https://github.com/StevenRafft/RobloxMessageNotif/blob/master/.githubpage/images/cookie.jpg">Here, have a cookie :)</a></h2>
+<h2><a href="https://raw.githubusercontent.com/StevenRafft/RobloxMessageNotif/master/.githubpage/images/cookie.jpg">Here, have a cookie :)</a></h2>
 <h1></h1>
 
 <h1>Config</h1>
