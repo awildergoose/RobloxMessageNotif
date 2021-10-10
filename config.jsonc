@@ -12,7 +12,7 @@
         "duration": 10,
         // custom scripts/events that happen whenever there is a new message
         "scripts": {
-            // false means its disabled, if it's true, then its enabled
+            // false means it's disabled, if it's true, then it's enabled
             "discord_webhook": false
         }
     }
