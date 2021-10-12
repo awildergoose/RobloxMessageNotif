@@ -3,12 +3,10 @@
 from discord import Webhook, RequestsWebhookAdapter, embeds
 from jsonc_parser.parser import JsoncParser
 
-import discord
-
-WEBHOOK_URL = JsoncParser.parse_file(
+WEBHOOK_URL:str = JsoncParser.parse_file(
     "./res/scripts/discord_webhook/precious_info.jsonc").get("token")
 
-embed = discord.embeds.Embed()
+embed = embeds.Embed()
 embed.title = "new message"
 embed.description = "steve got new message on roblos"
 webhook = Webhook.from_url(
