@@ -1,19 +1,10 @@
 cookie
-cookie.json
-cookie.jsonc
+cookie.json*
 precious_info
-precious_info.json
-precious_info.jsonc
+precious_info.json*
 __pycache__
 .pytest_cache
 *.pyc
 test_file
-test_file.htm
-test_file.html
-<<<<<<< HEAD
+test_file.htm*
 .vscode
-=======
-precious_info.jsonc
-precious_info.json
-precious_info
->>>>>>> 2360b1535f80ca7eac98107c580d5c020dd8b0a5
