@@ -1,5 +1,6 @@
-win10toast
+win10toast_click
 requests
 time
 jsonc_parser
 colorama
+webbrowser

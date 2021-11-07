@@ -1,9 +1,10 @@
 import colorama
-import win10toast
+import webbrowser
 import requests
 import time
 
 from jsonc_parser.parser import JsoncParser
+from win10toast_click import ToastNotifier
 
 cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
 config = JsoncParser.parse_file("./config.jsonc")
@@ -28,12 +29,15 @@ except:
     themeDetails["msgIcon"] = "./res/icons/default.ico"
 
 API_URL = "https://privatemessages.roblox.com/v1/messages/unread/count"
+PAGE_URL = "https://www.roblox.com/my/messages/#!/inbox"
 
+def onClick():
+    webbrowser.open_new(PAGE_URL)
 
 def notify():
-    toast = win10toast.ToastNotifier()
+    toast = ToastNotifier()
     toast.show_toast(themeDetails["msgTitle"], themeDetails["msgContent"], duration=themeDetails["msgDuration"],
-                     icon_path=themeDetails["msgIcon"], threaded=True, sound=False)
+                     icon_path=themeDetails["msgIcon"], threaded=True, callback_on_click=onClick)
 
 def sendRobloxRequest(URL):
     return requests.get(API_URL,
