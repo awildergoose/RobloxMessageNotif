@@ -5,11 +5,11 @@ import time
 
 from jsonc_parser.parser import JsoncParser
 
-cookie = JsoncParser.parse_file('./cookie.jsonc').get("cookie")
-config = JsoncParser.parse_file('./config.jsonc')
+cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
+config = JsoncParser.parse_file("./config.jsonc")
 
 theme = config.get("onMessage")["theme"]
-themeFile = JsoncParser.parse_file("./res/themes/" + theme + ".jsonc")
+themeFile = JsoncParser.parse_file("./res/themes/%s.jsonc" % theme)
 themeDetails = {
     "msgTitle": themeFile.get("title"),
     "msgContent": themeFile.get("content"),
@@ -20,9 +20,9 @@ themeDetails = {
 colorama.init()
 
 try:
-    themeDetails["icon"] = "./res/icons/" + themeFile.get("icon") + ".ico"
+    themeDetails["icon"] = "./res/icons/%s.ico" % themeFile.get("icon")
 except TypeError:
-    print(colorama.Back.LIGHTBLACK_EX + "[WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" % (theme, colorama.Style.RESET_ALL))
+    print("%s [WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" % (colorama.Back.LIGHTBLACK_EX, theme, colorama.Style.RESET_ALL))
 
     themeDetails["icon"] = "./res/icons/default.ico"
 
@@ -38,21 +38,21 @@ def notify():
 while True:
     result = requests.get(API_URL,
                           headers={"content-type": "application/json"},
-                          cookies={'.ROBLOSECURITY': cookie}
+                          cookies={".ROBLOSECURITY": cookie}
                           ).json()
     if result == None:
         continue
 
-    count = result.get('count')
+    count = result.get("count")
     if count == None:
         if config.get("debug"):
-            print(colorama.Back.RED + "[ERROR]: Ratelimited or invalid .ROBLOSECURITY key. %s" % (colorama.Style.RESET_ALL))
+            print("%s [ERROR]: Ratelimited or invalid .ROBLOSECURITY key. %s" % (colorama.Back.RED, colorama.Style.RESET_ALL))
 
         time.sleep(60)
         continue
 
     if config.get("debug"):
-        print("Message count: " + str(count))
+        print("Message count: %s" % str(count))
 
     if count >= config.get("minunread"):
         notify()
