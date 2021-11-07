@@ -13,8 +13,7 @@ themeFile = JsoncParser.parse_file("./res/themes/%s.jsonc" % theme)
 themeDetails = {
     "msgTitle": themeFile.get("title"),
     "msgContent": themeFile.get("content"),
-    "msgDuration": themeFile.get("duration"),
-    "icon": ""
+    "msgDuration": themeFile.get("duration")
 }
 
 colorama.init()
