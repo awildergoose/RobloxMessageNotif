@@ -19,27 +19,31 @@ themeDetails = {
 colorama.init()
 
 try:
-    themeDetails["icon"] = "./res/icons/%s.ico" % themeFile.get("icon")
-except TypeError:
+    themeDetails["msgIcon"] = "./res/icons/%s.ico" % themeFile.get("icon")
+except:
+    # i don't think this works, someone please make a pull request if u can fix this
     print("%s [WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" %
           (colorama.Back.LIGHTBLACK_EX, theme, colorama.Style.RESET_ALL))
 
-    themeDetails["icon"] = "./res/icons/default.ico"
+    themeDetails["msgIcon"] = "./res/icons/default.ico"
 
 API_URL = "https://privatemessages.roblox.com/v1/messages/unread/count"
 
 
 def notify():
     toast = win10toast.ToastNotifier()
-    toast.show_toast(themeDetails.msgTitle, themeDetails.msgContent, duration=themeDetails.msgDuration,
-                     icon_path=themeDetails.icon, threaded=True, sound=False)
+    toast.show_toast(themeDetails["msgTitle"], themeDetails["msgContent"], duration=themeDetails["msgDuration"],
+                     icon_path=themeDetails["msgIcon"], threaded=True, sound=False)
+
+def sendRobloxRequest(URL):
+    return requests.get(API_URL,
+                            headers={"content-type": "application/json"},
+                            cookies={".ROBLOSECURITY": cookie}
+                            ).json()
 
 
 while True:
-    result = requests.get(API_URL,
-                          headers={"content-type": "application/json"},
-                          cookies={".ROBLOSECURITY": cookie}
-                          ).json()
+    result = sendRobloxRequest(API_URL)
     if result == None:
         continue
 
