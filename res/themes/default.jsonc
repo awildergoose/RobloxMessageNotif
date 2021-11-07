@@ -1,0 +1,6 @@
+{
+    "title": "Message", // the title of the notification
+    "content": "You got a new message!", // content of the notification
+    "duration": 10 // duration of the notification
+    //"icon": "default" // the icon of the notification
+}

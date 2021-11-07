@@ -1,3 +1,4 @@
+import colorama
 import win10toast
 import requests
 import time
@@ -7,13 +8,31 @@ from jsonc_parser.parser import JsoncParser
 cookie = JsoncParser.parse_file('./cookie.jsonc').get("cookie")
 config = JsoncParser.parse_file('./config.jsonc')
 
+theme = config.get("onMessage")["theme"]
+themeFile = JsoncParser.parse_file("./res/themes/" + theme + ".jsonc")
+themeDetails = {
+    "msgTitle": themeFile.get("title"),
+    "msgContent": themeFile.get("content"),
+    "msgDuration": themeFile.get("duration"),
+    "icon": ""
+}
+
+colorama.init()
+
+try:
+    themeDetails["icon"] = "./res/icons/" + themeFile.get("icon") + ".ico"
+except TypeError:
+    print(colorama.Back.LIGHTBLACK_EX + "[WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" % (theme, colorama.Style.RESET_ALL))
+
+    themeDetails["icon"] = "./res/icons/default.ico"
+
 API_URL = "https://privatemessages.roblox.com/v1/messages/unread/count"
 
 
 def notify():
     toast = win10toast.ToastNotifier()
-    toast.show_toast(config.get("onMessage")["title"], config.get("onMessage")["content"], duration=config.get(
-        "onMessage")["duration"], icon_path="./res/icons/icon.ico", threaded=True, sound=False)
+    toast.show_toast(themeDetails.msgTitle, themeDetails.msgContent, duration=themeDetails.msgDuration,
+                     icon_path=themeDetails.icon, threaded=True, sound=False)
 
 
 while True:
@@ -27,7 +46,7 @@ while True:
     count = result.get('count')
     if count == None:
         if config.get("debug"):
-            print("Ratelimited or invalid .ROBLOSECURITY key.")
+            print(colorama.Back.RED + "[ERROR]: Ratelimited or invalid .ROBLOSECURITY key. %s" % (colorama.Style.RESET_ALL))
 
         time.sleep(60)
         continue

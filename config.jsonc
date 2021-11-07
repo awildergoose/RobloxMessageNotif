@@ -1,19 +1,10 @@
 {
-    // Debug (prints everytime it sends a request)
-    "debug": true,
-    // Minimum unread messages to notify you
-    "minunread": 1,
-    "onMessage": {
-        // the title of the notification
-        "title": "Message",
-        // content of the notification
-        "content": "You got a new message!",
-        // duration of the notification
-        "duration": 10,
-        // custom scripts/events that happen whenever there is a new message
-        "scripts": {
-            // false means it's disabled, if it's true, then it's enabled
-            "discord_webhook": false
+    "debug": true, // Debug mode
+    "minunread": 1, // Minimum unread messages to notify you
+    "onMessage": { // whenever a message gets recieved, do (...)
+        "theme": "default", // the theme you are currently using
+        "scripts": { // custom scripts/events that happen whenever there is a new message
+            "discord_webhook": false // false means it's disabled, if it's true, then it's enabled
         }
     }
 }

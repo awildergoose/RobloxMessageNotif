@@ -12,7 +12,7 @@ Open the file and add this
 
 ```jsonc
 {
-    "cookie": "YOUR-ROBLO-SECURITY-COOKIE-HERE"
+  "cookie": "YOUR-ROBLO-SECURITY-COOKIE-HERE"
 }
 ```
 
