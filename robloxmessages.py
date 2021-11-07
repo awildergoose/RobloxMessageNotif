@@ -21,7 +21,8 @@ colorama.init()
 try:
     themeDetails["icon"] = "./res/icons/%s.ico" % themeFile.get("icon")
 except TypeError:
-    print("%s [WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" % (colorama.Back.LIGHTBLACK_EX, theme, colorama.Style.RESET_ALL))
+    print("%s [WARNING]: Icon not provided for theme %s using default theme. (./res/icons/default.ico) %s" %
+          (colorama.Back.LIGHTBLACK_EX, theme, colorama.Style.RESET_ALL))
 
     themeDetails["icon"] = "./res/icons/default.ico"
 
@@ -45,7 +46,8 @@ while True:
     count = result.get("count")
     if count == None:
         if config.get("debug"):
-            print("%s [ERROR]: Ratelimited or invalid .ROBLOSECURITY key. %s" % (colorama.Back.RED, colorama.Style.RESET_ALL))
+            print("%s [ERROR]: Ratelimited or invalid .ROBLOSECURITY key. %s" % (
+                colorama.Back.RED, colorama.Style.RESET_ALL))
 
         time.sleep(60)
         continue
