@@ -4,3 +4,5 @@ time
 jsonc_parser
 colorama
 webbrowser
+pystray
+ctypes

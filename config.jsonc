@@ -1,6 +1,7 @@
 {
-    "debug": true, // Debug mode
+    "debug": false, // Debug mode
     "minunread": 1, // Minimum unread messages to notify you
+    "trayIconEnabled": true, // Should the tray icon appear?
     "onMessage": { // whenever a message gets recieved, do (...)
         "theme": "default", // the theme you are currently using
         "scripts": { // custom scripts/events that happen whenever there is a new message
