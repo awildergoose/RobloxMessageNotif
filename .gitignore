@@ -11,3 +11,4 @@ test_file.htm*
 node_modules
 marketplace_host
 .update
+.git

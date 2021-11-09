@@ -1,5 +1,4 @@
 import os
-import os
 import requests
 import shutil
 
@@ -19,6 +18,9 @@ with open(f"./version", "r") as file:
         print("Found an update!")
         print("Downloading update...")
 
+        if os.path.exists("./.update"):
+            shutil.rmtree("./.update")
+        
         os.mkdir("./.update")
 
         Repo.clone_from("https://github.com/StevenRafft/RobloxMessageNotif", "./.update")
@@ -41,13 +43,13 @@ with open(f"./version", "r") as file:
         print("Done moving.")
         print("Installing update...")
 
-        shutil.copytree("./.update", "./", dirs_exist_ok=True)
+        shutil.copy("./.update", "./")
 
         print("Done installing!")
 
         print("Removing temp...")
 
-        os.remove("./.update")
+        shutil.rmtree("./.update")
 
         print("Done removing temp!")
 
