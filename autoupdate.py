@@ -37,6 +37,9 @@ with open(f"./version", "r") as file:
         print("Downloading update...")
 
         if os.path.exists("./.update"):
+            if os.path.exists("./.update/.git"):
+                os.rename("./.update/.git", "./.update/removeme")
+            
             shutil.rmtree("./.update", ignore_errors=True)
             os.rmdir("./.update")
         else:
