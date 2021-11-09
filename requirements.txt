@@ -6,3 +6,5 @@ colorama
 webbrowser
 pystray
 ctypes
+gitpython
+shutil

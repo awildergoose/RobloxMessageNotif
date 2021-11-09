@@ -14,9 +14,9 @@ from PIL import Image
 
 config = JsoncParser.parse_file("./config.jsonc")
 
-# if config.get("autoUpdate"):
-#     with open(f"./autoupdate.py") as file:
-#         exec(file.read())
+if config.get("autoUpdate"):
+    with open(f"./autoupdate.py") as file:
+        exec(file.read())
 
 cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
 

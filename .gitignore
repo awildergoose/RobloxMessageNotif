@@ -10,3 +10,4 @@ test_file.htm*
 .vscode
 node_modules
 marketplace_host
+.update

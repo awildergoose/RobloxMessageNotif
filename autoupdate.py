@@ -1,10 +1,57 @@
-# import os
-# import requests
+import os
+import os
+import requests
+import shutil
 
-# print("Checking for updates...")
+from git.repo.base import Repo
 
-# os.mkdir("./update")
+print("Checking for updates...")
 
-# print("No updates found.")
+online_version_request = requests.get("https://raw.githubusercontent.com/StevenRafft/RobloxMessageNotif/master/version")
+online_version = str(online_version_request.content)[2:][:-1]
 
-# print("Updated!")
+with open(f"./version", "r") as file:
+    read = file.read()
+
+    if online_version == read:
+        print("No updates found.")
+    else:
+        print("Found an update!")
+        print("Downloading update...")
+
+        os.mkdir("./.update")
+
+        Repo.clone_from("https://github.com/StevenRafft/RobloxMessageNotif", "./.update")
+
+        print("Done downloading!")
+
+        print("Moving extensions and themes...")
+
+        themes = os.listdir("./res/themes/")
+        extensions = os.listdir("./res/extensions")
+
+        for theme in themes:
+            print("Moved %s to %s" % (("./res/themes/%s" % theme), ("./.update/res/themes/%s" % theme)))
+            os.replace("./res/themes/%s" % theme, "./.update/res/themes/%s" % theme)
+        
+        for extension in extensions:
+            print("Moved %s to %s" % (("./res/extensions/%s" % extension), ("./.update/res/extensions/%s" % extension)))
+            shutil.move("./res/extensions/%s" % extension, "./.update/res/extensions/%s" % extension)
+        
+        print("Done moving.")
+        print("Installing update...")
+
+        shutil.copytree("./.update", "./", dirs_exist_ok=True)
+
+        print("Done installing!")
+
+        print("Removing temp...")
+
+        os.remove("./.update")
+
+        print("Done removing temp!")
+
+        print("Update has been successfully installed!")
+    
+
+    print("Current version: %s, Online version: %s" % (read, online_version))
