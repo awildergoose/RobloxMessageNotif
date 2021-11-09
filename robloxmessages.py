@@ -1,8 +1,3 @@
-# Also make this an option
-# Tray icon using pystray
-# https://pystray.readthedocs.io/en/latest/usage.html
-# ##################Documentation####################
-
 import ctypes
 import pystray
 import colorama
@@ -19,6 +14,9 @@ from PIL import Image
 
 cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
 config = JsoncParser.parse_file("./config.jsonc")
+
+consoleHidden = False
+consoleHiddenState = False
 
 theme = config.get("onMessage")["theme"]
 themeFile = JsoncParser.parse_file("./res/themes/%s.jsonc" % theme)
@@ -42,16 +40,38 @@ except:
 API_URL = "https://privatemessages.roblox.com/v1/messages/unread/count"
 PAGE_URL = "https://www.roblox.com/my/messages/#!/inbox"
 
+trayIcon = None
 
 def on_tray_clicked(icon, item):
+    trayIcon.stop()
+
     exit(0)
 
+def toggle_console(icon, item):
+    global consoleHiddenState
+    global consoleHidden
+
+    if(consoleHidden):
+        ctypes.windll.user32.ShowWindow(
+            ctypes.windll.kernel32.GetConsoleWindow(), 1)
+    else:
+        ctypes.windll.user32.ShowWindow(
+            ctypes.windll.kernel32.GetConsoleWindow(), 0)
+
+    consoleHidden = not consoleHidden
+    consoleHiddenState = not item.checked
 
 def startTrayIcon():
+    global trayIcon
     trayIcon = pystray.Icon('Roblox Messsages Notifier', Image.open('./res/icons/default.ico'), menu=pystray.Menu(
         pystray.MenuItem(
             'Exit',
             on_tray_clicked,
+        ),
+        pystray.MenuItem(
+            'Toggle Console',
+            toggle_console,
+            checked=lambda item: consoleHiddenState
         )))
 
     trayIcon.run()
@@ -60,10 +80,11 @@ def startTrayIcon():
 if config.get("trayIconEnabled") == True:
     Thread(target=startTrayIcon).start()
 
-if config.get("debug") == False:
+if config.get("hideWindow") == True:
     ctypes.windll.user32.ShowWindow(
         ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
+consoleHidden = True
 
 def onClick():
     webbrowser.open_new(PAGE_URL)
