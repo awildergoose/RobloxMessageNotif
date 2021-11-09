@@ -5,7 +5,7 @@
     "hideWindow": true, // Should the console window be displayed or not?
     "onMessage": { // whenever a message gets recieved, do (...)
         "theme": "default", // the theme you are currently using
-        "scripts": { // custom scripts/events that happen whenever there is a new message
+        "extensions": { // custom extensions/events that happen whenever there is a new message
             "discord_webhook": false // false means it's disabled, if it's true, then it's enabled
         }
     }

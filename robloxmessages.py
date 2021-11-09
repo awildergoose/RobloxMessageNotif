@@ -123,15 +123,15 @@ while True:
     if count >= config.get("minunread"):
         notify()
 
-        for script in config.get("onMessage")["scripts"]:
-            enabled = config.get("onMessage")["scripts"][script]
+        for extension in config.get("onMessage")["extensions"]:
+            enabled = config.get("onMessage")["extensions"][extension]
 
             if config.get("debug"):
                 print(
-                    f"{script} is currently {'enabled' if enabled else 'disabled'}")
+                    f"{extension} is currently {'enabled' if enabled else 'disabled'}")
 
             if enabled:
-                with open(f"./res/scripts/{script}/index.py") as file:
+                with open(f"./res/extensions/{extension}/index.py") as file:
                     exec(file.read())
 
         time.sleep(60)

@@ -4,7 +4,7 @@ from discord import Webhook, RequestsWebhookAdapter, embeds
 from jsonc_parser.parser import JsoncParser
 
 WEBHOOK_URL: str = JsoncParser.parse_file(
-    "./res/scripts/discord_webhook/precious_info.jsonc").get("token")
+    "./res/extensions/discord_webhook/precious_info.jsonc").get("token")
 
 embed = embeds.Embed()
 embed.title = "new message"
