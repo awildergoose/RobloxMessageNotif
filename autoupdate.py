@@ -10,6 +10,7 @@ online_version_request = requests.get(
     "https://raw.githubusercontent.com/StevenRafft/RobloxMessageNotif/master/version")
 online_version = str(online_version_request.content)[2:][:-1]
 
+
 def move_and_overwrite(root_src_dir: str, root_dst_dir: str):
     # https://stackoverflow.com/questions/7419665/python-move-and-overwrite-files-and-folders#7420617
     for src_dir, dirs, files in os.walk(root_src_dir):
@@ -39,7 +40,8 @@ with open(f"./version", "r") as file:
         if os.path.exists("./.update"):
             if os.path.exists("./.update/.git"):
                 os.rename("./.update/.git", "./.update/removeme")
-            
+                shutil.rmtree("./update/removeme")
+
             shutil.rmtree("./.update", ignore_errors=True)
             os.rmdir("./.update")
         else:

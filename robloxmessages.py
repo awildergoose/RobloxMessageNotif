@@ -47,10 +47,12 @@ PAGE_URL = "https://www.roblox.com/my/messages/#!/inbox"
 
 trayIcon = None
 
+
 def on_tray_clicked(icon, item):
     trayIcon.stop()
 
     exit(0)
+
 
 def toggle_console(icon, item):
     global consoleHiddenState
@@ -65,6 +67,7 @@ def toggle_console(icon, item):
 
     consoleHidden = not consoleHidden
     consoleHiddenState = not item.checked
+
 
 def startTrayIcon():
     global trayIcon
@@ -90,6 +93,7 @@ if config.get("hideWindow"):
         ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 consoleHidden = True
+
 
 def onClick():
     webbrowser.open_new(PAGE_URL)
