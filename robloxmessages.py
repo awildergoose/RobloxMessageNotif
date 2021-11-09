@@ -101,8 +101,8 @@ def notify():
                      icon_path=themeDetails["msgIcon"], threaded=True, callback_on_click=onClick)
 
 
-def sendRobloxRequest(URL):
-    return requests.get(API_URL,
+def sendRobloxRequest(URL: str):
+    return requests.get(URL,
                         headers={"content-type": "application/json"},
                         cookies={".ROBLOSECURITY": cookie}
                         ).json()
