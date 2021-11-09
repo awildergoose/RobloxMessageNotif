@@ -12,8 +12,13 @@ from jsonc_parser.parser import JsoncParser
 from win10toast_click import ToastNotifier
 from PIL import Image
 
-cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
 config = JsoncParser.parse_file("./config.jsonc")
+
+# if config.get("autoUpdate"):
+#     with open(f"./autoupdate.py") as file:
+#         exec(file.read())
+
+cookie = JsoncParser.parse_file("./cookie.jsonc").get("cookie")
 
 consoleHidden = False
 consoleHiddenState = False
@@ -77,10 +82,10 @@ def startTrayIcon():
     trayIcon.run()
 
 
-if config.get("trayIconEnabled") == True:
+if config.get("trayIconEnabled"):
     Thread(target=startTrayIcon).start()
 
-if config.get("hideWindow") == True:
+if config.get("hideWindow"):
     ctypes.windll.user32.ShowWindow(
         ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
