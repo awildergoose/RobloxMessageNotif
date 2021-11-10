@@ -28,7 +28,7 @@ from notif_handler import notify
 from extension_handler import handle as handle_extensions
 from theme_handler import handle as handle_theme
 from util import conf as config
-from util import API_URL
+from util import UNREAD_MESSAGES_API_URL
 
 if config.get("autoUpdate"):
     checkForUpdates()
@@ -37,7 +37,7 @@ handle_theme()
 handle_tray()
 
 while True:
-    result = sendRobloxRequest(API_URL)
+    result = sendRobloxRequest(UNREAD_MESSAGES_API_URL)
     if result == None:
         continue
 
