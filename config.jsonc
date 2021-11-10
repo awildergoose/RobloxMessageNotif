@@ -2,7 +2,7 @@
     "debug": false, // Debug mode
     "minunread": 1, // Minimum unread messages to notify you
     "trayIconEnabled": true, // Should the tray icon appear?
-    "hideWindow": true, // Should the console window be displayed or not?
+    "hideWindowOnStart": false, // Should the console window be displayed on start or not?
     "autoUpdate": true, // Should the program automatically check for updates, update?
     "onMessage": { // whenever a message gets recieved, do (...)
         "theme": "default", // the theme you are currently using
