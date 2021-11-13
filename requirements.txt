@@ -1,0 +1,10 @@
+win10toast_click
+requests
+time
+jsonc_parser
+colorama
+webbrowser
+pystray
+ctypes
+gitpython
+shutil

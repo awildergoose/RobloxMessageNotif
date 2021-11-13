@@ -1,0 +1,13 @@
+cookie
+cookie.json*
+precious_info
+precious_info.json*
+__pycache__
+.pytest_cache
+*.pyc
+test_file
+test_file.htm*
+.vscode
+node_modules
+marketplace_host
+.update
