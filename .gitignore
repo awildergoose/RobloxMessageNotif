@@ -10,9 +10,4 @@ test_file.htm*
 .vscode
 node_modules
 marketplace_host
-<<<<<<< HEAD
 .update
-=======
-.update
-.git
->>>>>>> d3cd6307cd1dec6b653573cad32830e76d131dd6
