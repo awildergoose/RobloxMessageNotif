@@ -8,7 +8,7 @@ WEBHOOK_URL: str = JsoncParser.parse_file(
 
 embed = embeds.Embed()
 embed.title = "New message"
-embed.description = "You got new message on roblox!"
+embed.description = "You got a new message on roblox!"
 webhook = Webhook.from_url(
     WEBHOOK_URL, adapter=RequestsWebhookAdapter())
 webhook.send(embed=embed)
