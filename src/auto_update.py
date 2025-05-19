@@ -7,7 +7,7 @@ from git.repo.base import Repo
 print("Checking for updates...")
 
 online_version_request = requests.get(
-    "https://raw.githubusercontent.com/StevenRafft/RobloxMessageNotif/master/version")
+    "https://raw.githubusercontent.com/awildergoose/RobloxMessageNotif/master/version")
 online_version = str(online_version_request.content)[2:][:-1]
 
 def move_and_overwrite(root_src_dir: str, root_dst_dir: str):
