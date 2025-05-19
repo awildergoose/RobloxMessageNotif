@@ -48,7 +48,7 @@ def check():
                 os.mkdir("../.update")
 
             Repo.clone_from(
-                "https://github.com/StevenRafft/RobloxMessageNotif", "../.update")
+                "https://github.com/awildergoose/RobloxMessageNotif", "../.update")
 
             print("Done downloading!")
 
